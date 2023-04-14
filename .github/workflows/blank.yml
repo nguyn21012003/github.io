@@ -1,0 +1,99 @@
+#include<stdio.h>
+#include<string.h>
+
+void nhapdathuc(char dathuc[]);
+int demktspace(char dathuc[]);
+int demktcham(char dathuc[]);
+void XoaKyTu(char dathuc[]);
+void sort(char dathuc[]);
+
+
+typedef struct dathuc
+{
+    int a;
+    int bacX;
+    int bacY;
+    int bacZ;
+    struct Node* next;
+}datthuc;
+
+
+
+void main ()
+{
+	char dathuc[5000];
+    int  n;
+    int a[5000];
+
+	nhapdathuc(dathuc);
+	demktspace(dathuc);
+	//sap xep roi moi dem ki tu space
+	XoaKyTu(dathuc);
+	printf("Da thuc 1: '%s'",dathuc);
+
+	
+	
+	printf("\n");
+	
+	
+	
+	nhapdathuc(dathuc);
+	demktspace(dathuc);
+	//sap xep roi moi dem ki tu space
+	XoaKyTu(dathuc);
+	printf("Da thuc 2: '%s'",dathuc);
+	
+	
+	getch();
+}
+void nhapdathuc(char dathuc[])
+ {
+	printf("nhapvaochuoi :");
+	gets(dathuc);
+}
+int demktspace(char dathuc[])
+{	
+	char ch = ' ';             
+     
+	int i = 0;
+	int demspace = 0;    
+	         
+	while(dathuc[i] != '\0') 
+	{
+		if(dathuc[i] == ch)
+			demspace++;
+		i++;
+   } 
+   if(demspace > 0) {
+        //printf("%d", demspace);
+        return demspace;
+   } else {
+        //printf("0",demspace);
+        return 0;
+   }
+}
+
+
+void XoaKyTu(char dathuc[])
+{
+  int len=strlen(dathuc);
+    int i;
+	char ch =' ';
+    for(i=0;i<len;i++)
+	{
+    	if(dathuc[i]==ch)
+		{
+		int j;
+		for(j=i;j<len;j++)
+		{
+		dathuc[j]=dathuc[j+1];
+		}
+		dathuc[j+1]='\0';
+		i--;
+		}
+	}
+}
+void sort(char dathuc[])
+{
+	
+}
